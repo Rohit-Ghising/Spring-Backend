@@ -13,7 +13,6 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -26,7 +25,7 @@ public class AppConfig {
 
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().
                 authorizeHttpRequests(Authorize->Authorize.requestMatchers("/api/**").authenticated()
-                        .anyRequest().permitAll()).addFilterBefore(new jwtTokenValidator(), BasicAuthenticationFilter.class)
+                        .anyRequest().permitAll()).addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)
                 .csrf().disable().cors().configurationSource(corsConfigurationSource()).and()
                 .httpBasic().and().formLogin();
         return http.build();
