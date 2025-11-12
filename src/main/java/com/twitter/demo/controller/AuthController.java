@@ -47,7 +47,7 @@ public class AuthController {
         createdUser.setEmail(email);
         createdUser.setFullName(fullName);
 
-        createdUser.setPassword(password);
+        createdUser.setPassword(passwordEncoder.encode(password));
         createdUser.setBirthDate((birthDate));
         createdUser.setVerification(new Varification());
 
@@ -69,7 +69,9 @@ public class AuthController {
     @PostMapping("/signin")
 
     public ResponseEntity<AuthResponse> signin(@RequestBody User user)
+
     {
+        System.out.println("user"+ user);
         String username = user.getEmail();
         String password = user.getPassword();
         Authentication authentication = authenticate(username,password);

@@ -3,6 +3,7 @@ package com.twitter.demo.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +29,7 @@ public class Twit {
     private Twit replyFor;
     private boolean isReply;
     private boolean isTwit;
+    private LocalDateTime CreatedAt;
 
 
 
