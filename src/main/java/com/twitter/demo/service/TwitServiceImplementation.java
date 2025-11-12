@@ -74,7 +74,12 @@ public class TwitServiceImplementation implements TwitService {
 
     @Override
     public Twit createReply(TwitReplyRequest req, User user) throws UserException {
-        Twit replyFor = findById(req.getTwitId());
+        Twit replyFor = null;
+        try {
+            replyFor = findById(req.getTwitId());
+        } catch (TwitException e) {
+            throw new RuntimeException(e);
+        }
 
         Twit twit = new Twit();
         twit.setContent(req.getContent());
@@ -93,7 +98,7 @@ public class TwitServiceImplementation implements TwitService {
     @Override
     public List<Twit> getUserTwit(User user) {
 
-        return twitRepository.findAllByReTwitUserContainsOrUser_IdAndIsTwitTrueOrderByCreatedAtDesc(user,user.getId());
+        return twitRepository.findAllByRetwitUserContainsOrUser_IdAndIsTwitTrueOrderByCreatedAtDesc(user,user.getId());
     }
 
     @Override

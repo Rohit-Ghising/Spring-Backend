@@ -29,7 +29,7 @@ public class Twit {
     private Twit replyFor;
     private boolean isReply;
     private boolean isTwit;
-    private LocalDateTime CreatedAt;
+    private LocalDateTime createdAt;
 
 
 

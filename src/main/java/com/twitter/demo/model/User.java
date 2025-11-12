@@ -21,6 +21,7 @@ public class User {
     private String email;
     private String password;
     private String mobile;
+    private String image;
     private String backgroundImage;
     private String bio;
     private boolean req_user;
