@@ -90,7 +90,8 @@ public class TwitServiceImplementation implements TwitService {
         twit.setTwit(false);
       twit.setReplyFor(replyFor);
       Twit savedReply =twitRepository.save(twit);
-      twit.getReplyTwits().add(savedReply);
+//      twit.getReplyTwits().add(savedReply);
+      replyFor.getReplyTwits().add(savedReply);
       twitRepository.save(replyFor);
         return replyFor;
     }

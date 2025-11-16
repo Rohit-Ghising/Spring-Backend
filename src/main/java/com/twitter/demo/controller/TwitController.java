@@ -57,7 +57,7 @@ public class TwitController {
     }
 
 
-    @GetMapping("/{twitId}/")
+    @GetMapping("/{twitId}")
     public ResponseEntity<TwitDto> findTwitById(@PathVariable Long twitId, TwitReplyRequest req,
                                           @RequestHeader("Authorization")String jwt)
             throws UserException, TwitException{
@@ -67,7 +67,7 @@ public class TwitController {
         return new ResponseEntity<>(twitDto, HttpStatus.OK);
 
     }
-    @DeleteMapping("/{twitId}/")
+    @DeleteMapping("/{twitId}add ")
     public ResponseEntity<ApiResponse> deleteTwit(@PathVariable Long twitId, TwitReplyRequest req,
                                                 @RequestHeader("Authorization")String jwt)
             throws UserException, TwitException{
@@ -82,7 +82,7 @@ public class TwitController {
 
 
 
-    @GetMapping("/")
+    @GetMapping("/twits")
     public ResponseEntity<List<TwitDto>> getAllTwits(
                                                 @RequestHeader("Authorization")String jwt)
             throws UserException, TwitException{

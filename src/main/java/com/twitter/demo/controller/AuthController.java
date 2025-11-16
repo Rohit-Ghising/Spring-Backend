@@ -82,7 +82,7 @@ public class AuthController {
 
 
     }
-
+@GetMapping("/profile")
     private Authentication authenticate(String username, String password) {
         UserDetails userDetails =customUserDetails.loadUserByUsername(username);
         if(userDetails == null){
